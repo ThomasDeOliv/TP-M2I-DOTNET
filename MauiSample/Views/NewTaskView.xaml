@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MauiSample.ViewModels"
+    x:Class="MauiSample.Views.NewTaskView"
+    x:Name="Home"
+    x:DataType="vm:NewTaskViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="2*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Label 
+            Grid.Row="0"
+            Text="Nouvelle tâche"
+            FontSize="32"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            Grid.Row="1"
+            Text="Retour aux tâches"
+            Command="{Binding GoBackCommand}"/>
+        <Label
+            Grid.Row="2"
+            Text="Titre"/>
+        <Entry
+            Grid.Row="3"
+            Text="{Binding Title}"/>
+        <Label
+            Grid.Row="4"
+            Text="Titre"/>
+        <Entry
+            Grid.Row="5"
+            Text="{Binding Title}"/>
+        <Label
+            Grid.Row="6"
+            Text="Description"/>
+        <Entry
+            Grid.Row="7"
+            Text="{Binding Description}"/>
+        <Label
+            Grid.Row="8"
+            Text="Date de rendu"/>
+        <DatePicker
+            Grid.Row="9"
+            Date="{Binding DueDate}"/>
+        <Button
+            Grid.Row="11"
+            Text="Retour aux tâches"
+            Command="{Binding CreateTaskCommand}"/>
+    </Grid>
+</ContentPage>

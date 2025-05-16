@@ -12,4 +12,10 @@ public partial class NewTaskView : ContentPage
         BindingContext = _viewModel;
         InitializeComponent();
     }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _viewModel.CleanCommand.Execute(null);
+    }
 }

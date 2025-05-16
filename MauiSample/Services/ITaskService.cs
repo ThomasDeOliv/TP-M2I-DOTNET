@@ -4,7 +4,6 @@ namespace MauiSample.Services
 {
     public interface ITaskService
     {
-        bool Loaded { get; }
         List<TaskModel> Tasks { get; }
         TaskModel? SelectedTask { get; }
         Task FetchTasksAsync();

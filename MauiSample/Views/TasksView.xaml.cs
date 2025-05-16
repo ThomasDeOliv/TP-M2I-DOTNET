@@ -12,4 +12,16 @@ public partial class TasksView : ContentPage
         BindingContext = _viewModel;
         InitializeComponent();
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _viewModel.LoadTasksCommand.Execute(null);
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _viewModel.UnLoadTasksCommand.Execute(null);
+    }
 }

@@ -4,13 +4,11 @@ namespace MauiSample.Services
 {
     internal class FakeTaskService : ITaskService
     {
-        public bool Loaded { get; private set; }
         public List<TaskModel> Tasks { get; private set; }
         public TaskModel? SelectedTask { get; private set; }
 
         public FakeTaskService()
         {
-            Loaded = false;
             Tasks = new List<TaskModel>();
         }
 
@@ -18,10 +16,11 @@ namespace MauiSample.Services
         {
             await Task.Run(() =>
             {
-                if (!Loaded)
+                if (Tasks.Count == 0)
                 {
                     List<TaskModel> fakeTasks = [
-                        new TaskModel() {
+                           new TaskModel()
+                       {
                             Id = 42,
                             Title = "Implémenter le module d'authentification",
                             Description = "Créer les API endpoints pour l'authentification des utilisateurs avec JWT",
@@ -30,11 +29,10 @@ namespace MauiSample.Services
                             CreatedAt = DateTimeOffset.FromUnixTimeSeconds(1746860400L),
                             UpdatedAt = DateTimeOffset.FromUnixTimeSeconds(1747053000L),
                             DueDate = DateTimeOffset.FromUnixTimeSeconds(1749988800L),
-                        }
-                    ];
+                       },
+                   ];
                     Tasks.AddRange(fakeTasks);
                 }
-                Loaded = true;
             });
         }
 

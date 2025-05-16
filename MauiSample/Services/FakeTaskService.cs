@@ -6,6 +6,7 @@ namespace MauiSample.Services
     {
         public bool Loaded { get; private set; }
         public List<TaskModel> Tasks { get; private set; }
+        public TaskModel? SelectedTask { get; private set; }
 
         public FakeTaskService()
         {
@@ -35,6 +36,17 @@ namespace MauiSample.Services
                 }
                 Loaded = true;
             });
+        }
+
+        public void SelectTask(int? selectedTaskIndex)
+        {
+            if (selectedTaskIndex.HasValue)
+            {
+                SelectedTask = Tasks[selectedTaskIndex.Value];
+                return;
+            }
+
+            SelectedTask = null;
         }
 
         public async Task AddNewTaskAsync(TaskModel providedNewTask)

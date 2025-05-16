@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiSample.Services;
+using MauiSample.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace MauiSample
 {
@@ -14,6 +16,11 @@ namespace MauiSample
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<ITaskService, FakeTaskService>();
+            builder.Services.AddSingleton<HomeViewModel>();
+            builder.Services.AddSingleton<NewTaskViewModel>();
+            builder.Services.AddSingleton<TaskDetailsViewModel>();
+            builder.Services.AddSingleton<TasksViewModel>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
